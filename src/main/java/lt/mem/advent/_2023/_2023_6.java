@@ -1,13 +1,12 @@
 package lt.mem.advent._2023;
 
-import lt.mem.advent.ReaderUtil;
+import lt.mem.advent.util.ReaderUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class _2023_6 {

@@ -1,4 +1,4 @@
-package lt.mem.advent;
+package lt.mem.advent.util;
 
 import org.apache.commons.io.FileUtils;
 

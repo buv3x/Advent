@@ -1,6 +1,6 @@
 package lt.mem.advent._2023;
 
-import lt.mem.advent.ReaderUtil;
+import lt.mem.advent.util.ReaderUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;

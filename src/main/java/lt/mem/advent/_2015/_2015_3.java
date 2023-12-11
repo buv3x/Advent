@@ -1,8 +1,7 @@
 package lt.mem.advent._2015;
 
-import lt.mem.advent.ReaderUtil;
+import lt.mem.advent.util.ReaderUtil;
 import lt.mem.advent.structure.Point2D;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashSet;
 import java.util.Map;

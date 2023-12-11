@@ -1,13 +1,7 @@
 package lt.mem.advent._2015;
 
-import lt.mem.advent.ReaderUtil;
-import lt.mem.advent.structure.Point2D;
+import lt.mem.advent.util.ReaderUtil;
 import org.apache.commons.codec.digest.DigestUtils;
-
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
 
 public class _2015_4 {
 

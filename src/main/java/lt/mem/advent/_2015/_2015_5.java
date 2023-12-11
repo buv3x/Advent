@@ -1,6 +1,6 @@
 package lt.mem.advent._2015;
 
-import lt.mem.advent.ReaderUtil;
+import lt.mem.advent.util.ReaderUtil;
 
 import java.util.List;
 
