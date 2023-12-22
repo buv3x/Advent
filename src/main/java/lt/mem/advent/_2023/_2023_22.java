@@ -86,9 +86,6 @@ public class _2023_22 {
                 if(CollectionUtils.isNotEmpty(holdedBy)) {
                     stopIndex = i;
                     brick.holdedBy.addAll(holdedBy.stream().map(b -> b.index).collect(Collectors.toList()));
-                    for (Brick holder : holdedBy) {
-                        holder.holds.add(brick.index);
-                    }
                     break;
                 }
             }
@@ -130,7 +127,6 @@ public class _2023_22 {
         int toX;
         int fromY;
         int toY;
-        List<Integer> holds = new ArrayList<>();
         List<Integer> holdedBy = new ArrayList<>();
 
         public Brick(int index, int startZ, int height, int fromX, int toX, int fromY, int toY) {
@@ -142,10 +138,6 @@ public class _2023_22 {
             this.fromY = fromY;
             this.toY = toY;
         }
-    }
-
-    public enum Allignment {
-        X,Y,Z;
     }
 
 }
