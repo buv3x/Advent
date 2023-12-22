@@ -56,23 +56,7 @@ public class _2023_22 {
 
     private static List<Brick> processBricks(List<String> input) {
         List<Brick> bricks = new ArrayList<>();
-        int index = 0;
-        for (String line : input) {
-            String[] splitBefore = StringUtils.split(ReaderUtil.stringBefore(line, "~"), ",");
-            String[] splitAfter = StringUtils.split(ReaderUtil.stringAfter(line, "~"), ",");
-
-            int fromX = Math.min(Integer.parseInt(splitBefore[0]), Integer.parseInt(splitAfter[0]));
-            int toX = Math.max(Integer.parseInt(splitBefore[0]), Integer.parseInt(splitAfter[0]));
-            int fromY = Math.min(Integer.parseInt(splitBefore[1]), Integer.parseInt(splitAfter[1]));
-            int toY = Math.max(Integer.parseInt(splitBefore[1]), Integer.parseInt(splitAfter[1]));
-
-            int startZ = Math.min(Integer.parseInt(splitBefore[2]), Integer.parseInt(splitAfter[2]));
-            int height = Math.max(Integer.parseInt(splitBefore[2]), Integer.parseInt(splitAfter[2])) - startZ + 1;
-
-            bricks.add(new Brick(index, startZ, height, fromX, toX, fromY, toY));
-
-            ++index;
-        }
+        parseBricks(input, bricks);
 
         bricks.sort(Comparator.comparing(b -> b.startZ));
 
@@ -99,6 +83,26 @@ public class _2023_22 {
             }
         }
         return bricks;
+    }
+
+    private static void parseBricks(List<String> input, List<Brick> bricks) {
+        int index = 0;
+        for (String line : input) {
+            String[] splitBefore = StringUtils.split(ReaderUtil.stringBefore(line, "~"), ",");
+            String[] splitAfter = StringUtils.split(ReaderUtil.stringAfter(line, "~"), ",");
+
+            int fromX = Math.min(Integer.parseInt(splitBefore[0]), Integer.parseInt(splitAfter[0]));
+            int toX = Math.max(Integer.parseInt(splitBefore[0]), Integer.parseInt(splitAfter[0]));
+            int fromY = Math.min(Integer.parseInt(splitBefore[1]), Integer.parseInt(splitAfter[1]));
+            int toY = Math.max(Integer.parseInt(splitBefore[1]), Integer.parseInt(splitAfter[1]));
+
+            int startZ = Math.min(Integer.parseInt(splitBefore[2]), Integer.parseInt(splitAfter[2]));
+            int height = Math.max(Integer.parseInt(splitBefore[2]), Integer.parseInt(splitAfter[2])) - startZ + 1;
+
+            bricks.add(new Brick(index, startZ, height, fromX, toX, fromY, toY));
+
+            ++index;
+        }
     }
 
     private static List<Brick> holdedBy(Brick brick, List<Brick> layer) {
