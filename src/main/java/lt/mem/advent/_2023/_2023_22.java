@@ -23,11 +23,10 @@ public class _2023_22 {
 
         Set<Integer> uniqueSupporters = new HashSet<>();
         for (Brick brick : bricks) {
-            if(brick.holdedBy.size() == 1) {
-                uniqueSupporters.add(brick.holdedBy.get(0));
+            if(brick.heldBy.size() == 1) {
+                uniqueSupporters.add(brick.heldBy.get(0));
             }
         }
-
         System.out.println(bricks.size() - uniqueSupporters.size());
     }
 
@@ -40,7 +39,7 @@ public class _2023_22 {
             Set<Integer> fallenBricks = new HashSet<>();
             fallenBricks.add(fallenBrick.index);
             for (Brick brick : bricks) {
-                List<Integer> holdedBy = brick.holdedBy;
+                List<Integer> holdedBy = brick.heldBy;
                 HashSet<Integer> holdedWithoutFalling = new HashSet<>(holdedBy);
                 holdedWithoutFalling.removeAll(fallenBricks);
                 if(holdedBy.size() > 0 && holdedWithoutFalling.size() == 0) {
@@ -69,7 +68,7 @@ public class _2023_22 {
                 List<Brick> holdedBy = holdedBy(brick, layer);
                 if(CollectionUtils.isNotEmpty(holdedBy)) {
                     stopIndex = i;
-                    brick.holdedBy.addAll(holdedBy.stream().map(b -> b.index).collect(Collectors.toList()));
+                    brick.heldBy.addAll(holdedBy.stream().map(b -> b.index).collect(Collectors.toList()));
                     break;
                 }
             }
@@ -131,7 +130,7 @@ public class _2023_22 {
         int toX;
         int fromY;
         int toY;
-        List<Integer> holdedBy = new ArrayList<>();
+        List<Integer> heldBy = new ArrayList<>();
 
         public Brick(int index, int startZ, int height, int fromX, int toX, int fromY, int toY) {
             this.index = index;
