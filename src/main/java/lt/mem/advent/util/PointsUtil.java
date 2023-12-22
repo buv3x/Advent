@@ -4,6 +4,9 @@ import lt.mem.advent.structure.Direction;
 import lt.mem.advent.structure.Point2D;
 import lt.mem.advent.structure.Turn;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PointsUtil {
 
     public static int squareDistance(Point2D p1, Point2D p2) {
@@ -31,6 +34,21 @@ public class PointsUtil {
 
     public static Point2D newPoint(Point2D point, Direction direction, int maxX, int maxY) {
         return newPoint(point, direction, 0, 0, maxX, maxY);
+    }
+
+    public static List<Point2D> newPoints(Point2D point, int minX, int minY, int maxX, int maxY) {
+        List<Point2D> newPoints = new ArrayList<>();
+        for (Direction direction : Direction.values()) {
+            Point2D newPoint = newPoint(point, direction, minX, minY, maxX, maxY);
+            if(newPoint != null) {
+                newPoints.add(newPoint);
+            }
+        }
+        return newPoints;
+    }
+
+    public static List<Point2D> newPoints(Point2D point, int maxX, int maxY) {
+        return newPoints(point, 0, 0, maxX, maxY);
     }
 
     public static Direction applyTurn(Direction direction, Turn turn) {
