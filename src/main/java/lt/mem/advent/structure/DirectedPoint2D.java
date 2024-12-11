@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class DirectedPoint2D {
 
-    private Point2D point;
+    private final Point2D point;
 
-    private Direction direction;
+    private final Direction direction;
 
     public DirectedPoint2D(Point2D point, Direction direction) {
         this.point = point;
@@ -19,14 +19,6 @@ public class DirectedPoint2D {
 
     public Direction getDirection() {
         return direction;
-    }
-
-    public void setPoint(Point2D point) {
-        this.point = point;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
     }
 
     @Override
