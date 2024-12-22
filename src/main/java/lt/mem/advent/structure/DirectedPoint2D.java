@@ -33,4 +33,13 @@ public class DirectedPoint2D {
     public int hashCode() {
         return Objects.hash(point, direction);
     }
+
+    @Override
+    public String toString() {
+        return "(" +
+                point.getX() +
+                ", " + point.getY() +
+                " | " + direction +
+                ')';
+    }
 }

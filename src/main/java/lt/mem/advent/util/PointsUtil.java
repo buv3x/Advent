@@ -7,6 +7,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class PointsUtil {
 
@@ -37,6 +38,10 @@ public class PointsUtil {
         return newPoint(point, direction, 0, 0, maxX, maxY);
     }
 
+    public static Point2D newPointNoGrid(Point2D point, Direction direction) {
+        return newPoint(point, direction, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+    }
+
     public static List<Point2D> newPoints(Point2D point, int minX, int minY, int maxX, int maxY) {
         List<Point2D> newPoints = new ArrayList<>();
         for (Direction direction : Direction.values()) {
@@ -50,6 +55,10 @@ public class PointsUtil {
 
     public static List<Point2D> newPoints(Point2D point, int maxX, int maxY) {
         return newPoints(point, 0, 0, maxX, maxY);
+    }
+
+    public static List<Point2D> newPointsNoGrid(Point2D point) {
+        return newPoints(point, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
     public static Direction applyTurn(Direction direction, Turn turn) {
@@ -101,5 +110,15 @@ public class PointsUtil {
 
         return points;
     }
+
+    public static void printWalls(Set<Point2D> walls, int maxX, int maxY) {
+        for(int i = 0; i <= maxY; ++i) {
+            for(int j = 0; j <= maxX; ++j) {
+                System.out.print(walls.contains(new Point2D(j, i)) ? '#' : '.');
+            }
+            System.out.println();
+        }
+    }
+
 
 }
