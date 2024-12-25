@@ -1,15 +1,12 @@
 package lt.mem.advent._2024;
 
-import lt.mem.advent.structure.Direction;
-import lt.mem.advent.structure.Point2D;
-import lt.mem.advent.util.PointsUtil;
 import lt.mem.advent.util.ReaderUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class _2024_22 {
