@@ -61,6 +61,19 @@ public class PointsUtil {
         return newPoints(point, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
+    public static List<Point2D> newDiagonalPointsNoGrid(Point2D point) {
+        List<Point2D> newPoints = new ArrayList<>();
+        newPoints.add(new Point2D(point.getX() - 1, point.getY() - 1));
+        newPoints.add(new Point2D(point.getX(), point.getY() - 1));
+        newPoints.add(new Point2D(point.getX() + 1, point.getY() - 1));
+        newPoints.add(new Point2D(point.getX() - 1, point.getY()));
+        newPoints.add(new Point2D(point.getX() + 1, point.getY()));
+        newPoints.add(new Point2D(point.getX() - 1, point.getY() + 1));
+        newPoints.add(new Point2D(point.getX(), point.getY() + 1));
+        newPoints.add(new Point2D(point.getX() + 1, point.getY() + 1));
+        return newPoints;
+    }
+
     public static Direction applyTurn(Direction direction, Turn turn) {
         return Direction.of((direction.getValue() + turn.getValue()) % 4);
     }
